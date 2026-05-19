@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cookinfiesta.local/schemas/carly-insight/v0.1.0",
+  "title": "Carly Customer Insight Extraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_metadata",
+    "booking_context",
+    "survey_quality",
+    "decision_insights",
+    "market_research_signals",
+    "product_feedback",
+    "knowledge_base_gaps",
+    "complaints_or_risks",
+    "follow_up",
+    "action_items",
+    "analysis_flags"
+  ],
+  "properties": {
+    "record_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "source",
+        "agent_name",
+        "retell_call_id",
+        "processed_at",
+        "call_started_at",
+        "call_ended_at",
+        "call_duration_seconds",
+        "customer_identifier",
+        "booking_reference",
+        "language",
+        "transcript_file_url",
+        "raw_webhook_file_url",
+        "extraction_confidence"
+      ],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "source": { "type": "string", "const": "retell" },
+        "agent_name": { "type": "string" },
+        "retell_call_id": { "type": "string" },
+        "processed_at": { "type": "string", "format": "date-time" },
+        "call_started_at": { "type": ["string", "null"], "format": "date-time" },
+        "call_ended_at": { "type": ["string", "null"], "format": "date-time" },
+        "call_duration_seconds": { "type": ["integer", "null"], "minimum": 0 },
+        "customer_identifier": { "type": ["string", "null"] },
+        "booking_reference": { "type": ["string", "null"] },
+        "language": { "type": ["string", "null"] },
+        "transcript_file_url": { "type": ["string", "null"] },
+        "raw_webhook_file_url": { "type": ["string", "null"] },
+        "extraction_confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "booking_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "experience_booked",
+        "booking_date",
+        "experience_date",
+        "group_size",
+        "group_type",
+        "occasion",
+        "customer_location",
+        "first_time_customer",
+        "evidence"
+      ],
+      "properties": {
+        "experience_booked": { "type": ["string", "null"] },
+        "booking_date": { "type": ["string", "null"], "format": "date" },
+        "experience_date": { "type": ["string", "null"], "format": "date" },
+        "group_size": { "type": ["integer", "null"], "minimum": 1 },
+        "group_type": {
+          "type": ["string", "null"],
+          "enum": ["couple", "family", "friends", "corporate", "team_event", "celebration", "tourists", "mixed", "unknown", null]
+        },
+        "occasion": { "type": ["string", "null"] },
+        "customer_location": { "type": ["string", "null"] },
+        "first_time_customer": { "type": ["boolean", "null"] },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "survey_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completed",
+        "quality_score",
+        "customer_engagement",
+        "transcript_clarity",
+        "main_limitations",
+        "usable_for_research",
+        "evidence"
+      ],
+      "properties": {
+        "completed": { "type": "boolean" },
+        "quality_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "customer_engagement": {
+          "type": "string",
+          "enum": ["high", "medium", "low", "unknown"]
+        },
+        "transcript_clarity": {
+          "type": "string",
+          "enum": ["clear", "mostly_clear", "unclear", "very_unclear"]
+        },
+        "main_limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "usable_for_research": { "type": "boolean" },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "decision_insights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_booking_reason",
+        "secondary_booking_reasons",
+        "most_important_decision_factors",
+        "hesitations_before_booking",
+        "what_almost_stopped_them",
+        "price_sensitivity",
+        "group_decision_dynamics",
+        "decision_timeline",
+        "emotional_drivers",
+        "evidence"
+      ],
+      "properties": {
+        "primary_booking_reason": { "type": ["string", "null"] },
+        "secondary_booking_reasons": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "most_important_decision_factors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "hesitations_before_booking": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "what_almost_stopped_them": { "type": ["string", "null"] },
+        "price_sensitivity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level", "summary", "evidence"],
+          "properties": {
+            "level": {
+              "type": "string",
+              "enum": ["high", "medium", "low", "not_discussed", "unknown"]
+            },
+            "summary": { "type": ["string", "null"] },
+            "evidence": { "$ref": "#/$defs/evidence_array" }
+          }
+        },
+        "group_decision_dynamics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_maker", "influencers", "summary", "evidence"],
+          "properties": {
+            "decision_maker": { "type": ["string", "null"] },
+            "influencers": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "summary": { "type": ["string", "null"] },
+            "evidence": { "$ref": "#/$defs/evidence_array" }
+          }
+        },
+        "decision_timeline": { "type": ["string", "null"] },
+        "emotional_drivers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "market_research_signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alternatives_considered",
+        "competitors_or_substitutes",
+        "discovery_channels",
+        "customer_segment_signals",
+        "positioning_language",
+        "unmet_needs",
+        "evidence"
+      ],
+      "properties": {
+        "alternatives_considered": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "competitors_or_substitutes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "discovery_channels": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "customer_segment_signals": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "positioning_language": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "unmet_needs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "product_feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "positive_expectations",
+        "concerns",
+        "requested_improvements",
+        "dietary_or_accessibility_notes",
+        "logistics_feedback",
+        "evidence"
+      ],
+      "properties": {
+        "positive_expectations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "concerns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requested_improvements": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dietary_or_accessibility_notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "logistics_feedback": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "knowledge_base_gaps": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/knowledge_base_gap" }
+    },
+    "complaints_or_risks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/complaint_or_risk" }
+    },
+    "follow_up": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requested",
+        "required_by_context",
+        "preferred_channel",
+        "summary",
+        "deadline_or_timing",
+        "owner",
+        "evidence"
+      ],
+      "properties": {
+        "requested": { "type": "boolean" },
+        "required_by_context": { "type": "boolean" },
+        "preferred_channel": {
+          "type": ["string", "null"],
+          "enum": ["phone", "whatsapp", "email", "sms", "not_specified", null]
+        },
+        "summary": { "type": ["string", "null"] },
+        "deadline_or_timing": { "type": ["string", "null"] },
+        "owner": { "type": ["string", "null"] },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "action_items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/action_item" }
+    },
+    "analysis_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "priority_required",
+        "priority_level",
+        "has_follow_up_request",
+        "has_complaint",
+        "has_kb_gap",
+        "has_action_items",
+        "has_price_sensitivity_signal",
+        "has_competitor_or_alternative_signal",
+        "needs_manual_review",
+        "manual_review_reason"
+      ],
+      "properties": {
+        "priority_required": { "type": "boolean" },
+        "priority_level": {
+          "type": "string",
+          "enum": ["urgent", "high", "medium", "low", "none"]
+        },
+        "has_follow_up_request": { "type": "boolean" },
+        "has_complaint": { "type": "boolean" },
+        "has_kb_gap": { "type": "boolean" },
+        "has_action_items": { "type": "boolean" },
+        "has_price_sensitivity_signal": { "type": "boolean" },
+        "has_competitor_or_alternative_signal": { "type": "boolean" },
+        "needs_manual_review": { "type": "boolean" },
+        "manual_review_reason": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "$defs": {
+    "evidence_array": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["speaker", "quote", "confidence"],
+        "properties": {
+          "speaker": {
+            "type": "string",
+            "enum": ["customer", "carly", "unknown"]
+          },
+          "quote": { "type": "string" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "knowledge_base_gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topic", "question_or_gap", "impact", "recommended_kb_update", "priority", "evidence"],
+      "properties": {
+        "topic": { "type": "string" },
+        "question_or_gap": { "type": "string" },
+        "impact": { "type": ["string", "null"] },
+        "recommended_kb_update": { "type": ["string", "null"] },
+        "priority": { "type": "string", "enum": ["high", "medium", "low"] },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "complaint_or_risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "summary", "severity", "requires_human_review", "evidence"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["complaint", "risk", "confusion", "trust_concern", "safety", "payment", "dietary", "accessibility", "logistics", "other"]
+        },
+        "summary": { "type": "string" },
+        "severity": { "type": "string", "enum": ["urgent", "high", "medium", "low"] },
+        "requires_human_review": { "type": "boolean" },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    },
+    "action_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "description", "category", "priority", "owner", "due_timing", "source", "evidence"],
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": {
+          "type": "string",
+          "enum": ["follow_up", "operations", "knowledge_base", "customer_success", "product", "marketing_research", "technical", "other"]
+        },
+        "priority": { "type": "string", "enum": ["urgent", "high", "medium", "low"] },
+        "owner": { "type": ["string", "null"] },
+        "due_timing": { "type": ["string", "null"] },
+        "source": { "type": "string", "const": "carly_call" },
+        "evidence": { "$ref": "#/$defs/evidence_array" }
+      }
+    }
+  }
+}
