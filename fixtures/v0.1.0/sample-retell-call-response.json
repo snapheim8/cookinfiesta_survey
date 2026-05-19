@@ -1,0 +1,67 @@
+{
+  "call_id": "call_carly_sample_001",
+  "agent_id": "agent_carly_sample",
+  "agent_name": "Carly",
+  "call_status": "ended",
+  "start_timestamp": "2026-05-19T12:04:12Z",
+  "end_timestamp": "2026-05-19T12:13:48Z",
+  "duration_seconds": 576,
+  "recording_url": "https://example.invalid/recordings/call_carly_sample_001.mp3",
+  "metadata": {
+    "booking_reference": "CIF-2026-1042",
+    "experience_booked": "Barcelona Paella Cooking Experience",
+    "experience_date": "2026-06-03",
+    "booking_date": "2026-05-18",
+    "customer_first_name": "Maya"
+  },
+  "transcript": [
+    {
+      "speaker": "carly",
+      "text": "Hi Maya, this is Carly from Cook in Fiesta. You already booked with us, and I am just calling to understand what made you choose the experience."
+    },
+    {
+      "speaker": "customer",
+      "text": "Sure. We are visiting Barcelona with my parents and wanted something more memorable than another restaurant dinner."
+    },
+    {
+      "speaker": "carly",
+      "text": "What mattered most when you were deciding?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It felt hands-on and local. My husband liked that it was not just watching someone cook. We also liked that it seemed relaxed enough for my parents."
+    },
+    {
+      "speaker": "carly",
+      "text": "Did you consider anything else before booking?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, a tapas tour, a normal restaurant dinner, and another cooking class. The other class looked cheaper, but it felt more crowded."
+    },
+    {
+      "speaker": "carly",
+      "text": "Was there anything that made you hesitate?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The price was a little higher than we expected, so we talked about it. But since it is a special trip with my parents, we decided it was worth it."
+    },
+    {
+      "speaker": "carly",
+      "text": "Was there anything unclear before booking?"
+    },
+    {
+      "speaker": "customer",
+      "text": "I was not totally sure about the walking or stairs. My dad can walk, but too many stairs are hard for him. If someone could message me about that, it would help."
+    },
+    {
+      "speaker": "carly",
+      "text": "I will note that you would like someone to follow up about mobility details."
+    },
+    {
+      "speaker": "customer",
+      "text": "Thanks. Otherwise we are excited. It looks like a nice way to do something together."
+    }
+  ]
+}
