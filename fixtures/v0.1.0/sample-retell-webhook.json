@@ -1,0 +1,20 @@
+{
+  "event": "call_ended",
+  "call": {
+    "call_id": "call_carly_sample_001",
+    "agent_id": "agent_carly_sample",
+    "agent_name": "Carly",
+    "call_status": "ended",
+    "start_timestamp": "2026-05-19T12:04:12Z",
+    "end_timestamp": "2026-05-19T12:13:48Z",
+    "from_number": "+15550001111",
+    "to_number": "+15550002222",
+    "metadata": {
+      "booking_reference": "CIF-2026-1042",
+      "experience_booked": "Barcelona Paella Cooking Experience",
+      "experience_date": "2026-06-03",
+      "booking_date": "2026-05-18",
+      "customer_first_name": "Maya"
+    }
+  }
+}
