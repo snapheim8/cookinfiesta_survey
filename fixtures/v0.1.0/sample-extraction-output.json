@@ -1,0 +1,244 @@
+{
+  "record_metadata": {
+    "schema_version": "v0.1.0",
+    "source": "retell",
+    "agent_name": "Carly",
+    "retell_call_id": "call_carly_sample_001",
+    "processed_at": "2026-05-19T12:14:20Z",
+    "call_started_at": "2026-05-19T12:04:12Z",
+    "call_ended_at": "2026-05-19T12:13:48Z",
+    "call_duration_seconds": 576,
+    "customer_identifier": "Maya",
+    "booking_reference": "CIF-2026-1042",
+    "language": "en",
+    "transcript_file_url": "https://drive.google.com/example/transcript",
+    "raw_webhook_file_url": "https://drive.google.com/example/webhook",
+    "extraction_confidence": 0.92
+  },
+  "booking_context": {
+    "experience_booked": "Barcelona Paella Cooking Experience",
+    "booking_date": "2026-05-18",
+    "experience_date": "2026-06-03",
+    "group_size": 4,
+    "group_type": "family",
+    "occasion": "special family trip to Barcelona",
+    "customer_location": null,
+    "first_time_customer": null,
+    "evidence": [
+      {
+        "speaker": "customer",
+        "quote": "We are visiting Barcelona with my parents",
+        "confidence": 0.95
+      }
+    ]
+  },
+  "survey_quality": {
+    "completed": true,
+    "quality_score": 0.9,
+    "customer_engagement": "high",
+    "transcript_clarity": "clear",
+    "main_limitations": [],
+    "usable_for_research": true,
+    "evidence": [
+      {
+        "speaker": "customer",
+        "quote": "Sure.",
+        "confidence": 0.85
+      }
+    ]
+  },
+  "decision_insights": {
+    "primary_booking_reason": "They wanted a memorable, hands-on local experience for a family trip instead of another restaurant dinner.",
+    "secondary_booking_reasons": [
+      "Experience felt relaxed enough for parents",
+      "Customer valued doing something together",
+      "Less crowded than an alternative cooking class"
+    ],
+    "most_important_decision_factors": [
+      "Hands-on format",
+      "Local feeling",
+      "Suitable for parents",
+      "Not too crowded"
+    ],
+    "hesitations_before_booking": [
+      "Price was higher than expected",
+      "Unclear walking or stairs requirements"
+    ],
+    "what_almost_stopped_them": "Price and uncertainty about stairs or walking for the customer's father.",
+    "price_sensitivity": {
+      "level": "medium",
+      "summary": "Price caused discussion but did not prevent booking because the trip felt special.",
+      "evidence": [
+        {
+          "speaker": "customer",
+          "quote": "The price was a little higher than we expected",
+          "confidence": 0.96
+        }
+      ]
+    },
+    "group_decision_dynamics": {
+      "decision_maker": "Maya and her husband",
+      "influencers": [
+        "husband",
+        "parents"
+      ],
+      "summary": "Maya and her husband discussed the decision, with parent comfort influencing the choice.",
+      "evidence": [
+        {
+          "speaker": "customer",
+          "quote": "My husband liked that it was not just watching someone cook.",
+          "confidence": 0.94
+        }
+      ]
+    },
+    "decision_timeline": "Booked for an upcoming family trip after comparing alternatives.",
+    "emotional_drivers": [
+      "memorable family experience",
+      "togetherness",
+      "special trip"
+    ],
+    "evidence": [
+      {
+        "speaker": "customer",
+        "quote": "we decided it was worth it",
+        "confidence": 0.94
+      }
+    ]
+  },
+  "market_research_signals": {
+    "alternatives_considered": [
+      "tapas tour",
+      "restaurant dinner",
+      "another cooking class"
+    ],
+    "competitors_or_substitutes": [
+      "tapas tour",
+      "normal restaurant dinner",
+      "cheaper cooking class"
+    ],
+    "discovery_channels": [],
+    "customer_segment_signals": [
+      "family travelers",
+      "multi-generational group",
+      "experience-seeking tourists"
+    ],
+    "positioning_language": [
+      "hands-on",
+      "local",
+      "relaxed",
+      "memorable"
+    ],
+    "unmet_needs": [
+      "Clearer accessibility and mobility information before booking"
+    ],
+    "evidence": [
+      {
+        "speaker": "customer",
+        "quote": "wanted something more memorable than another restaurant dinner",
+        "confidence": 0.96
+      }
+    ]
+  },
+  "product_feedback": {
+    "positive_expectations": [
+      "Hands-on cooking",
+      "Relaxed group experience",
+      "Shared family activity"
+    ],
+    "concerns": [
+      "Walking or stairs may be difficult for customer's father"
+    ],
+    "requested_improvements": [
+      "Message customer with mobility details"
+    ],
+    "dietary_or_accessibility_notes": [
+      "Customer's father may have difficulty with too many stairs"
+    ],
+    "logistics_feedback": [
+      "Accessibility details were not fully clear before booking"
+    ],
+    "evidence": [
+      {
+        "speaker": "customer",
+        "quote": "I was not totally sure about the walking or stairs.",
+        "confidence": 0.97
+      }
+    ]
+  },
+  "knowledge_base_gaps": [
+    {
+      "topic": "Accessibility and mobility",
+      "question_or_gap": "Customer was unsure about walking distance or stairs before booking.",
+      "impact": "Could create anxiety for guests traveling with older family members or mobility limitations.",
+      "recommended_kb_update": "Add clear accessibility details covering stairs, walking distance, seating, and who to contact for mobility questions.",
+      "priority": "medium",
+      "evidence": [
+        {
+          "speaker": "customer",
+          "quote": "I was not totally sure about the walking or stairs.",
+          "confidence": 0.97
+        }
+      ]
+    }
+  ],
+  "complaints_or_risks": [
+    {
+      "type": "accessibility",
+      "summary": "Customer's father may have difficulty if the experience involves too many stairs.",
+      "severity": "medium",
+      "requires_human_review": true,
+      "evidence": [
+        {
+          "speaker": "customer",
+          "quote": "My dad can walk, but too many stairs are hard for him.",
+          "confidence": 0.98
+        }
+      ]
+    }
+  ],
+  "follow_up": {
+    "requested": true,
+    "required_by_context": true,
+    "preferred_channel": "whatsapp",
+    "summary": "Customer wants someone to message her about walking and stairs because her father has mobility limitations.",
+    "deadline_or_timing": "Before the experience on 2026-06-03",
+    "owner": "customer_success",
+    "evidence": [
+      {
+        "speaker": "customer",
+        "quote": "If someone could message me about that, it would help.",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "title": "Follow up with customer about mobility details",
+      "description": "Message Maya with clear details about walking, stairs, and accessibility before the experience.",
+      "category": "follow_up",
+      "priority": "high",
+      "owner": "customer_success",
+      "due_timing": "Before 2026-06-03",
+      "source": "carly_call",
+      "evidence": [
+        {
+          "speaker": "customer",
+          "quote": "If someone could message me about that, it would help.",
+          "confidence": 0.98
+        }
+      ]
+    }
+  ],
+  "analysis_flags": {
+    "priority_required": true,
+    "priority_level": "high",
+    "has_follow_up_request": true,
+    "has_complaint": false,
+    "has_kb_gap": true,
+    "has_action_items": true,
+    "has_price_sensitivity_signal": true,
+    "has_competitor_or_alternative_signal": true,
+    "needs_manual_review": true,
+    "manual_review_reason": "Customer requested follow-up about mobility details for her father."
+  }
+}
