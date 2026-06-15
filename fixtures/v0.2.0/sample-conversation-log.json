@@ -1,0 +1,13 @@
+{
+  "customer_intent": "tour pricing and availability",
+  "questions_asked": [
+    "How much does the Feijoada Experience cost and what's included?",
+    "Do you have availability this Saturday?"
+  ],
+  "resolved": true,
+  "escalated": false,
+  "escalation_reason": null,
+  "unanswered_questions": [],
+  "summary": "Customer asked about the Feijoada Experience pricing and Saturday availability. Carly provided pricing details and directed the customer to the booking page for availability.",
+  "booking_link_provided": true
+}

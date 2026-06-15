@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Carly Conversation Log",
+  "description": "Structured output from a Carly customer service conversation",
+  "type": "object",
+  "required": [
+    "customer_intent",
+    "questions_asked",
+    "resolved",
+    "escalated",
+    "escalation_reason",
+    "unanswered_questions",
+    "summary",
+    "booking_link_provided"
+  ],
+  "properties": {
+    "customer_intent": {
+      "type": "string",
+      "description": "Short phrase describing what the customer wanted"
+    },
+    "questions_asked": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of questions the customer asked"
+    },
+    "resolved": {
+      "type": "boolean",
+      "description": "Whether the customer's questions were answered"
+    },
+    "escalated": {
+      "type": "boolean",
+      "description": "Whether the conversation was escalated to a human"
+    },
+    "escalation_reason": {
+      "type": ["string", "null"],
+      "description": "Why the conversation was escalated, or null"
+    },
+    "unanswered_questions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Questions Carly could not answer"
+    },
+    "summary": {
+      "type": "string",
+      "description": "1-2 sentence summary of the conversation"
+    },
+    "booking_link_provided": {
+      "type": "boolean",
+      "description": "Whether Carly directed the customer to the booking page"
+    }
+  },
+  "additionalProperties": false
+}

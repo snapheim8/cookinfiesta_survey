@@ -1,0 +1,14 @@
+{
+  "event": "call_ended",
+  "call": {
+    "call_id": "call_abc123def456",
+    "agent_id": "agent_xyz789",
+    "call_type": "web_call",
+    "start_timestamp": 1718400000000,
+    "end_timestamp": 1718400180000,
+    "duration_ms": 180000,
+    "transcript": "Agent: Hello! Welcome to Cook in Fiesta. I'm Carly, how can I help you today?\nCustomer: Hi, I'm interested in the Feijoada Experience. How much does it cost and what's included?\nAgent: Great choice! The Feijoada Experience is a hands-on cooking class where you learn to prepare a traditional Brazilian feijoada from scratch. The experience is priced at R$250 per person and includes all ingredients, a recipe booklet to take home, and of course you get to enjoy the meal you prepare. The session lasts approximately 3 hours.\nCustomer: That sounds great. Do you have availability this Saturday?\nAgent: I don't have real-time availability information right now, but you can check current availability and book directly on our booking page. Would you like me to share the link?\nCustomer: Yes please.\nAgent: Here you go: cookinfiesta.com/book. You'll be able to see all available dates and times there. Is there anything else I can help you with?\nCustomer: No, that's all. Thank you!\nAgent: You're welcome! Enjoy the Feijoada Experience. Bom apetite!",
+    "transcript_object": [],
+    "call_analysis": null
+  }
+}
