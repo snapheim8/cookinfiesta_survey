@@ -1,53 +1,43 @@
-# Carly Automation Pack for Cook in Fiesta
+# cookinfiesta_survey
 
-Version: v0.1.0
+AI-powered customer service agent for [cookinfiesta.com](https://www.cookinfiesta.com)
 
-Carly is a Retell AI customer insight agent for Cook in Fiesta customers who have already booked an experience. Carly does not sell, upsell, or persuade. Her role is to collect high-quality customer insight after booking.
+## What is this
 
-This pack contains the working materials needed to build the first n8n automation:
+Carly is a voice and text chat customer service agent built on Retell AI. She is embedded on the Cook in Fiesta website and answers customer questions about tours, experiences, pricing, availability, and logistics.
 
-- Versioned workflow documentation
-- Per-call extraction prompt
-- Structured JSON schema
-- Every-5-call trend analysis prompt
-- WhatsApp alert templates
-- n8n build instructions and QA checklist
+When a customer is ready to book, Carly directs them to the booking page.
 
-## Folder Map
+## How it works
 
-- `docs/v0.1.0/automation-overview.md` - business logic, data flow, and operating rules
-- `docs/v0.1.0/n8n-build-instructions.md` - step-by-step n8n workflow build
-- `docs/v0.1.0/google-sheets-repository-map.md` - recommended tabs and columns
-- `docs/v0.1.0/builder-handoff.md` - implementation order, acceptance criteria, and open decisions
-- `prompts/v0.1.0/per-call-extraction-prompt.md` - prompt for GPT-5.4 mini or Claude
-- `prompts/v0.1.0/trend-analysis-prompt.md` - prompt for GPT-5.4 every 5 processed calls
-- `schemas/v0.1.0/carly-insight.schema.json` - structured output schema
-- `templates/v0.1.0/whatsapp-alerts.md` - WhatsApp message templates
-- `config/v0.1.0/env.example` - environment variable template
-- `fixtures/v0.1.0/sample-retell-webhook.json` - sample webhook input
-- `fixtures/v0.1.0/sample-retell-call-response.json` - sample Retell call response
-- `fixtures/v0.1.0/sample-extraction-output.json` - example extracted JSON
+- **Agent:** Retell AI (voice + text chat widget on the website)
+- **Knowledge source:** Retell knowledge base, manually synced from cookinfiesta.com content
+- **Automation:** n8n workflow processes each conversation — archives transcript, extracts structured data, logs to Google Sheets, sends WhatsApp alerts for escalations
+- **Data store:** Google Sheets (conversation logs, escalation queue, knowledge base sync log)
 
-## Recommended Model Setup
+## Repository structure
 
-- Per-call extraction: GPT-5.4 mini
-- Every-5-call trend analysis: GPT-5.4
+All working materials are versioned. Current version: `v0.2.0`.
 
-## Primary Automation Goal
+```
+config/          — environment variable templates
+docs/            — automation overview, build instructions, embed guide, handoff docs
+fixtures/        — sample webhook payloads and conversation logs for testing
+prompts/         — LLM prompts for post-conversation extraction
+schemas/         — JSON schemas for structured conversation output
+templates/       — WhatsApp alert message templates
+```
 
-After each Retell call, n8n should fetch the full transcript and metadata, archive the raw inputs, extract structured insight JSON, update the Google Sheets repository, send a WhatsApp alert, and mark priority when follow-up, complaints, action items, or knowledge-base gaps are present.
+See `CARLY_AUTOMATION_PACK.md` for the full file map and build order.
 
-Every 5 new processed Carly calls, n8n should run a trend analysis and save/send the report.
+## Quick start
 
-## Suggested Next Build Step
+1. Read `CARLY_AUTOMATION_PACK.md` for the complete scope and build phases
+2. Read `docs/v0.2.0/builder-handoff.md` for implementation order and acceptance criteria
+3. Copy `config/v0.2.0/env.example` to `.env` and fill in your API keys and webhook URLs
 
-Start with the main post-call workflow only:
+## Status
 
-1. Receive Retell webhook.
-2. Save raw webhook and transcript to Google Drive.
-3. Run extraction.
-4. Save JSON.
-5. Write one row to `Calls`.
-6. Send one WhatsApp alert.
-
-After that is stable, add the normalized supporting tabs, priority queue, and every-5-call trend workflow.
+Phase 1 (core agent) — in progress
+Phase 2 (post-conversation automation) — not started
+Phase 3 (booking system integration, trend analysis) — future
